@@ -15,6 +15,9 @@ struct BookList: View{
         NavigationView {
             List(viewModel.books) { book in
                 let index = viewModel.books.firstIndex(where: { $0.id == book.id })!
+                /*The firstIndex(where:) function returns the (first) index of the array item for which the given predicate is true. That predicate is the closure $0.id == book.id. In other words, find the index in the array for which the array’s item’s id property is equal to book.id, which is the current item in the List.
+                 If you search online, you’ll find a few alternatives to solve this problem. Most notably, using Array(books.enumerated()) and ForEach, like in this tutorial, to get the index of the current book in the array. I’ve chosen to work with firstIndex(where:) to get 1-on-1 parity between the book.id and books, but it has the disadvantage of O(n) time complexity inside the List. If you end up using the array’s indices, keep in mind that the external data source may not have a fixed sort order. The ideal scenario would be a ViewModel with a custom collection type that provides Identifiable and random access out of the box.
+                 */
                 
                 NavigationLink(destination: BookEdit(book: $viewModel.books[index])) {
                     BookRow(book: book)
