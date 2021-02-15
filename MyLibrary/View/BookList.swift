@@ -14,7 +14,12 @@ struct BookList: View{
     var body: some View {
         NavigationView {
             List(viewModel.books) { book in
-                BookRow(book: book)
+                let index = viewModel.books.firstIndex(where: { $0.id == book.id })!
+                
+                NavigationLink(destination: BookEdit(book: $viewModel.books[index])) {
+                    BookRow(book: book)
+                    //Note, é $viewModel e nao viewModel.$books pois books se refere a um @published, enquanto viewModel se refere a ligacao (binding) para o @observedObjected, nem tente fazer da segunda forma...
+                }
             }
             .navigationBarTitle("Books")
             .onAppear {// sem essa funcao ele nao faz a busca externa, nao mostra lista nenhuma
