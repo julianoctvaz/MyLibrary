@@ -6,7 +6,7 @@
 //
 //ViewModel também chamada de modelo de visão, faz a ponte da view com o model, tem que ser fracamente acoplado e fortemente coeso. Seria o controller, do MVC... apesar disso nao está muito claro ainda.
 import Foundation
-//import Combine antes precisava...
+import Combine
 
 //Às vezes, a fonte de verdade dos seus dados não reside dentro de uma visualização SwiftUI. Nesse caso, use o ObservableObjectprotocolo para permitir que uma classe interaja com o SwiftUI. 
 
@@ -28,6 +28,11 @@ class BooksViewModel: ObservableObject { //Quando você adota esse protocolo em 
  Conforme discutimos, o modelo de exibição é (vagamente) responsável por obter dados de uma fonte de dados (externa). Este não é o propósito do modelo de visualização no sentido mais estrito. Como não temos um controlador de banco de dados ou camada de persistência separada, é o suficiente por enquanto.
  */
 
+    init() { //dai podemos tirar o onAppear de dentro da view... Alem do mais cuidado com o uso de init dentro de views é sempre uma boa observacao. A estrutura de uma classe deve dizer respeito a ela, e nao a coisas externas que possam gerar depedencia ou alto acomplamento de diferentes arquivos de codigo.
+        fetchBooks()
+    }
+    
+    
     func fetchBooks(){
     URLSession.shared.dataTaskPublisher(for: url)
         .map { $0.data } //taking the output of the publisher
@@ -45,4 +50,22 @@ class BooksViewModel: ObservableObject { //Quando você adota esse protocolo em 
 /*
 De uma visão panorâmica, este é o código que usa a estrutura Combine para obter um arquivo JSON baseado na web, transformá-lo em uma matriz de Bookobjetos e atribuí-lo à propriedade books de BooksViewModel. É uma “cadeia” de operadores Combine, que usa o padrão builder que você já conhece do SwiftUI.
 */
+    
+//    Se os dados para booksin BooksViewModelnão vêm de um recurso JSON baseado na web, de onde eles vêm? Você pode usar praticamente qualquer editor lá! Core Data, Realm, uma API personalizada, um arquivo JSON no disco - qualquer coisa!
+    
+//    Depois de editar os dados BookEdit, para onde eles vão? Desde que esteja trabalhando com uma API online, você pode enviar os dados alterados de volta para persistência fica aqui um pedacinho do code para isso como desafio:
+    
+    var cancellables = Set<AnyCancellable>()
+    // Note: import Combine, too!
+    
+    func updateBooks()
+    {
+        $books.sink { books in
+            
+            for book in books {
+                print("Sending book '\(book.title)' to custom web API...")
+            }
+            
+        }.store(in: &cancellables)
+    }
 }

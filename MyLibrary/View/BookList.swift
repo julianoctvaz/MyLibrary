@@ -25,9 +25,9 @@ struct BookList: View{
                 }
             }
             .navigationBarTitle("Books")
-            .onAppear {// sem essa funcao ele nao faz a busca externa, nao mostra lista nenhuma
-                viewModel.fetchBooks()
-            }//Mais tarde, você pode querer começar fetchBooks()em um lugar diferente. Se você mantiver onAppear, verá que os dados do livro são buscados sempre que a BookListvisualização aparecer. Você também pode invocar fetchBooks()no inicializador de BooksViewModel, por exemplo, ou com base na ação do usuário.
+//            .onAppear {// sem essa funcao ele nao faz a busca externa, nao mostra lista nenhuma
+//                viewModel.fetchBooks()
+//            }//Mais tarde, você pode querer começar fetchBooks()em um lugar diferente. Se você mantiver onAppear, verá que os dados do livro são buscados sempre que a BookListvisualização aparecer. Você também pode invocar fetchBooks()no inicializador de BooksViewModel, por exemplo, ou com base na ação do usuário.
         }
     }
 }
