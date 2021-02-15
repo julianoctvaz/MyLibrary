@@ -60,12 +60,10 @@
 		179C565E25DAA5F6003507D1 /* MyLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				179C565F25DAA5F6003507D1 /* MyLibraryApp.swift */,
-				179C568125DAA9E2003507D1 /* BooksViewModel.swift */,
-				179C566F25DAA60B003507D1 /* Book.swift */,
-				179C567625DAA726003507D1 /* BookList.swift */,
-				179C567925DAA750003507D1 /* BookRow.swift */,
-				179C567C25DAA7A8003507D1 /* DataBooks.swift */,
+				179C568725DAD66F003507D1 /* Supporting Files */,
+				179C568425DAD5AD003507D1 /* View */,
+				179C568525DAD5D8003507D1 /* ViewModel */,
+				179C568625DAD5ED003507D1 /* Model */,
 				179C566325DAA5F7003507D1 /* Assets.xcassets */,
 				179C566825DAA5F7003507D1 /* Info.plist */,
 				179C566525DAA5F7003507D1 /* Preview Content */,
@@ -79,6 +77,40 @@
 				179C566625DAA5F7003507D1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		179C568425DAD5AD003507D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				179C567625DAA726003507D1 /* BookList.swift */,
+				179C567925DAA750003507D1 /* BookRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		179C568525DAD5D8003507D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				179C568125DAA9E2003507D1 /* BooksViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		179C568625DAD5ED003507D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				179C566F25DAA60B003507D1 /* Book.swift */,
+				179C567C25DAA7A8003507D1 /* DataBooks.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		179C568725DAD66F003507D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				179C565F25DAA5F6003507D1 /* MyLibraryApp.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
