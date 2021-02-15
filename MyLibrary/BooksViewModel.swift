@@ -6,6 +6,9 @@
 //
 //ViewModel também chamada de modelo de visão, faz a ponte da view com o model, tem que ser fracamente acoplado e fortemente coeso. Seria o controller, do MVC... apesar disso nao está muito claro ainda.
 import Foundation
+//import Combine antes precisava...
+
+//Às vezes, a fonte de verdade dos seus dados não reside dentro de uma visualização SwiftUI. Nesse caso, use o ObservableObjectprotocolo para permitir que uma classe interaja com o SwiftUI. 
 
 //You can only use ObservableObject with a class. Also, keep in mind that @Published will emit to subscribers before the value changes. This is only relevant if you’re subscribing manually, but it’s good to know!
 
@@ -15,7 +18,7 @@ class BooksViewModel: ObservableObject { //Quando você adota esse protocolo em 
     //temValor!
     //Uma propriedade de saída do controlador de visualização, que é nilanterior à propriedade carregada do controlador de visualização. Até que seja carregado, você não pode usá-lo.
     //Em um aplicativo, existem muitos cenários em que eles são úteis. Os campos do formulário que não estão preenchidos são apenas um deles.
-    @Published var books = [Book]()
+    @Published var books = [Book]() //The @Published property wrapper is what triggers any updates in observers of an ObservableObject.
    // agora, vamos falar sobre @Published. Já sabemos que ObservableObject usa propriedades que têm o wrapper de propriedade @Published, mas há mais. O wrapper de propriedade @Published essencialmente transforma a propriedade em um editor. Isso significa que você pode assinar (subscribes) a propriedade e responder às alterações que o editor (Published) emite. Isso é o que faremos com @ObservedObject, mais tarde.
 
 
