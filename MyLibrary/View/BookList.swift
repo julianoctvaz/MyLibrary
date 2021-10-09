@@ -10,6 +10,7 @@ import SwiftUI
 struct BookList: View{
     
     @ObservedObject var viewModel: BooksViewModel //ou seja, essa view depende do estado dessa variavel
+    // Poderia ser o @StateObject, que fica restrito ao escopo da view
     
     var body: some View {
         NavigationView {
