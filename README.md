@@ -1,6 +1,6 @@
 # MyLibrary 
 
-Project with a list of books using data binding properties, URLSession and JSON, and MVVM design pattern. Can you see the project evolution with the commits historic and comments in code. I recommend to read the links below before if this topics are not familiar to you.
+Project with a list of books using data binding properties, URLSession and JSON, Combine, SwiftUI, and MVVM design pattern. Can you see the project evolution with the commits historic and comments in code. I recommend to read the links below before if this topics are not familiar to you.
 
 ## Links
 [MVVM vs MVC](https://www.appcoda.com/mvvm-vs-mvc/)
